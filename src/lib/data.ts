@@ -1,13 +1,16 @@
 import type { Project, Experience, SkillGroup, NavItem } from "./types";
 
 export const siteConfig = {
-  name: "Muhammed Izedin",
+  name: "Muhammed",
   role: "Full Stack Web Developer",
-  bio: "I build complete web applications — Laravel backends, React frontends, and Next.js sites. Focused on clean code and practical solutions.",
+  title: "Full Stack Developer",
+  bio: "I build complete web applications — Laravel backends, React frontends, and Next.js sites. Focused on clean code, practical solutions, and creating software that solves real problems.",
   email: "muhammadezedn@gmail.com",
   github: "https://github.com/muhammedez",
   linkedin: "https://linkedin.com/in/yourusername",
   twitter: "https://x.com/yourusername",
+  location: "Available remotely",
+  greeting: "Hi, I'm",
 };
 
 export const navItems: NavItem[] = [
@@ -18,32 +21,36 @@ export const navItems: NavItem[] = [
   { label: "Contact", href: "#contact" },
 ];
 
-export const typewriterStrings: string[] = [
-  "Full Stack Developer",
-  "Laravel Developer",
-  "React Developer",
-  "PHP Developer",
+export const heroMetadata: { label: string; value: string }[] = [
+  { label: "Experience", value: "3+ years" },
+  { label: "Focus", value: "Laravel + React" },
 ];
 
 export const heroTechChips: string[] = [
   "Laravel",
   "React",
   "Next.js",
+  "TypeScript",
   "Tailwind CSS",
   "PHP",
   "MySQL",
 ];
 
+export const aboutParagraphs: string[] = [
+  "I'm a full-stack web developer passionate about building complete applications from concept to deployment. I enjoy working across the entire stack — from crafting responsive UIs with React and Next.js, to building robust backends with Laravel and PHP.",
+  "I focus on writing clean, maintainable code that solves real problems. Whether it's a web dashboard, a REST API, or a full-featured platform, I bring attention to detail and a practical approach to every project.",
+  "I'm currently looking for junior developer roles and freelance opportunities where I can contribute, learn from experienced teammates, and grow my skills.",
+];
+
 export const aboutStats: { label: string; value: string }[] = [
-  { label: "Projects Built", value: "12+" },
   { label: "Frontend Stack", value: "React / Next.js" },
   { label: "Backend Stack", value: "Laravel / PHP" },
 ];
 
-export const aboutText: string[] = [
-  "I'm a full-stack web developer passionate about building complete applications from concept to deployment. I enjoy working across the entire stack — from crafting responsive UIs with React and Next.js, to building robust backends with Laravel and PHP.",
-  "I focus on writing clean, maintainable code that solves real problems. Whether it's a web dashboard, a REST API, or a full-featured platform, I bring attention to detail and a practical approach to every project.",
-  "I'm currently looking for junior developer roles and freelance opportunities where I can contribute, learn from experienced teammates, and grow my skills.",
+export const aboutFocusList: string[] = [
+  "Laravel + React applications",
+  "REST API development",
+  "Open source contributions",
 ];
 
 export const projects: Project[] = [
@@ -72,7 +79,7 @@ export const projects: Project[] = [
     title: "Portfolio Generator",
     problem: "Developers spend more time building their portfolio than showcasing their actual work.",
     description:
-      "A Next.js tool that turns a simple config file into a polished developer portfolio — dark mode, responsive layouts, and one-click Vercel deployment included.",
+      "A tool that turns a simple config file into a polished developer portfolio — dark mode, responsive layouts, and one-click deployment included.",
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "MDX"],
     github: "https://github.com/muhammedez/portfolio-generator",
     live: "https://portfolio-gen.vercel.app",
@@ -112,6 +119,7 @@ export const experience: Experience[] = [
       "Engineer RESTful APIs with Laravel, handling authentication, payment integrations, and third-party service connections.",
       "Craft responsive, accessible interfaces with Tailwind CSS and modern component-driven workflows.",
     ],
+    tags: ["Laravel", "React", "Next.js", "Tailwind CSS", "REST API"],
   },
   {
     id: "freelance-1",
@@ -123,6 +131,7 @@ export const experience: Experience[] = [
       "Built tailored Laravel backends and integrated external APIs to meet specific client requirements.",
       "Owned the full project lifecycle: gathering requirements, scoping, development, QA, and deployment.",
     ],
+    tags: ["Laravel", "PHP", "MySQL", "JavaScript", "HTML/CSS"],
   },
   {
     id: "learning",
@@ -134,46 +143,25 @@ export const experience: Experience[] = [
       "Built a portfolio of personal projects and contributed to open-source repositories on GitHub.",
       "Completed industry-recognized certifications in Laravel, React, and modern web development practices.",
     ],
+    tags: ["PHP", "JavaScript", "HTML/CSS", "Git", "SQL"],
   },
 ];
 
 export const skillGroups: SkillGroup[] = [
   {
+    category: "Languages",
+    skills: ["PHP", "JavaScript", "TypeScript", "HTML", "CSS", "SQL"],
+  },
+  {
     category: "Frontend",
-    skills: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "HTML/CSS",
-      "JavaScript",
-      "Livewire",
-      "Alpine.js",
-    ],
+    skills: ["React", "Next.js", "Tailwind CSS", "Livewire", "Alpine.js"],
   },
   {
     category: "Backend",
-    skills: [
-      "Laravel",
-      "PHP",
-      "Node.js",
-      "Express",
-      "MySQL",
-      "SQLite",
-      "REST APIs",
-      "JWT Auth",
-    ],
+    skills: ["Laravel", "Node.js", "Express", "REST APIs", "MySQL", "SQLite", "JWT Auth"],
   },
   {
     category: "Tools",
-    skills: [
-      "Git",
-      "GitHub",
-      "VS Code",
-      "Docker",
-      "Linux",
-      "Postman",
-      "Vercel",
-    ],
+    skills: ["Git", "GitHub", "Docker", "Linux", "VS Code", "Postman", "Vercel"],
   },
 ];

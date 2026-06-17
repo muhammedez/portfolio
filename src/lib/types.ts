@@ -16,6 +16,7 @@ export interface Experience {
   role: string;
   period: string;
   bullets: string[];
+  tags?: string[];
 }
 
 export interface SkillGroup {

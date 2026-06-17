@@ -1,6 +1,3 @@
-"use client";
-
-import { AnimatePresence, motion } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/sections/HeroSection";
@@ -12,25 +9,17 @@ import { ContactSection } from "@/components/sections/ContactSection";
 
 export function App() {
   return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.3 }}
-        className="min-h-screen flex flex-col"
-      >
-        <Navbar />
-        <main className="flex-1">
-          <HeroSection />
-          <AboutSection />
-          <ProjectsSection />
-          <SkillsSection />
-          <ExperienceSection />
-          <ContactSection />
-        </main>
-        <Footer />
-      </motion.div>
-    </AnimatePresence>
+    <div className="min-h-screen flex flex-col bg-background text-foreground">
+      <Navbar />
+      <main className="flex-1">
+        <HeroSection />
+        <AboutSection />
+        <ProjectsSection />
+        <SkillsSection />
+        <ExperienceSection />
+        <ContactSection />
+      </main>
+      <Footer />
+    </div>
   );
 }

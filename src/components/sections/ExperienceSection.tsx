@@ -1,36 +1,56 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { AnimatedSection, staggerContainer, staggerItem } from "@/components/ui/AnimatedSection";
-import { TimelineItem } from "@/components/ui/TimelineItem";
 import { experience } from "@/lib/data";
+import { useEffect, useRef, useState } from "react";
 
 export function ExperienceSection() {
-  return (
-    <section id="experience" className="py-24 sm:py-32 px-4 sm:px-6 bg-surface/30">
-      <div className="max-w-3xl mx-auto">
-        <AnimatedSection>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-[-0.03em] text-foreground mb-2">
-            Experience
-          </h2>
-          <p className="text-muted-foreground text-base mb-12 max-w-2xl">
-            My journey as a developer so far — from self-taught beginnings to building for clients.
-          </p>
-        </AnimatedSection>
+  const [visible, setVisible] = useState(false);
+  const ref = useRef<HTMLElement>(null);
 
-        <motion.div
-          className="max-w-3xl space-y-14"
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-        >
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      { threshold: 0.1 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section ref={ref} id="experience" className="py-24 sm:py-32 px-4 sm:px-6 bg-surface/30">
+      <div className="max-w-3xl mx-auto">
+        <span className={`section-label reveal ${visible ? "reveal-visible" : ""}`}>Experience</span>
+
+        <div className={`timeline reveal ${visible ? "reveal-visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
           {experience.map((exp) => (
-            <motion.div key={exp.id} variants={staggerItem}>
-              <TimelineItem experience={exp} />
-            </motion.div>
+            <div key={exp.id} className="timeline-item">
+              <div className="timeline-meta">
+                <span className="font-medium text-foreground">{exp.company}</span>
+                <span className="timeline-meta-sep">·</span>
+                <span>{exp.period}</span>
+              </div>
+
+              <h3 className="timeline-role">{exp.role}</h3>
+
+              <ul className="timeline-highlights">
+                {exp.bullets.map((bullet, i) => (
+                  <li key={i} className="timeline-highlight">
+                    <span className="timeline-highlight-marker">▹</span>
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {exp.tags && (
+                <div className="timeline-tags">
+                  {exp.tags.map((tag) => (
+                    <span key={tag} className="timeline-tag">{tag}</span>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

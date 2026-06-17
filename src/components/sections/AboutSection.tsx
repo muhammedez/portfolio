@@ -1,89 +1,82 @@
-"use client";
-
-import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { aboutText, aboutStats } from "@/lib/data";
-import { Code2, Server, Layers, Target, Clock } from "lucide-react";
+import { aboutParagraphs, aboutStats, aboutFocusList } from "@/lib/data";
+import { Layers, Code2, Server, Clock, Target } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 const statIcons: Record<string, React.ReactNode> = {
-  "Projects Built": <Layers className="h-5 w-5" />,
-  "Frontend Stack": <Code2 className="h-5 w-5" />,
-  "Backend Stack": <Server className="h-5 w-5" />,
+  "Frontend Stack": <Code2 size={14} />,
+  "Backend Stack": <Server size={14} />,
 };
 
 export function AboutSection() {
-  return (
-    <section id="about" className="py-24 sm:py-32 px-4 sm:px-6">
-      <div className="max-w-3xl mx-auto">
-        <AnimatedSection>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-[-0.03em] text-foreground mb-2">
-            About Me
-          </h2>
-          <p className="text-muted-foreground text-base mb-10">
-            A quick introduction to who I am and what I do.
-          </p>
-        </AnimatedSection>
+  const [visible, setVisible] = useState(false);
+  const ref = useRef<HTMLElement>(null);
 
-        <div className="grid sm:grid-cols-5 gap-6">
-          {/* Bio text */}
-          <div className="sm:col-span-3">
-            <AnimatedSection delay={0.1}>
-              <div className="rounded-2xl bg-card border border-border p-6 sm:p-7 h-full">
-                {aboutText.map((paragraph, i) => (
-                  <p
-                    key={i}
-                    className="text-muted-foreground leading-[1.75] text-sm sm:text-base [&:not(:last-child)]:mb-4"
-                  >
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            </AnimatedSection>
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section ref={ref} id="about" className="py-24 sm:py-32 px-4 sm:px-6">
+      <div className="max-w-3xl mx-auto">
+        <span className={`section-label reveal ${visible ? "reveal-visible" : ""}`}>About</span>
+
+        <div className="about-grid">
+          <div>
+            <div
+              className={`about-card reveal ${visible ? "reveal-visible" : ""}`}
+              style={{ transitionDelay: "0.1s" }}
+            >
+              {aboutParagraphs.map((text, i) => (
+                <p key={i} className="text-muted-foreground leading-relaxed text-[0.9375rem] [&:not(:last-child)]:mb-4">
+                  {text}
+                </p>
+              ))}
+            </div>
           </div>
 
-          {/* Side cards */}
-          <div className="sm:col-span-2 space-y-4">
-            {/* Stats */}
-            <AnimatedSection delay={0.15}>
-              <div className="rounded-xl bg-card border border-border p-4 hover:border-accent/30 transition-colors duration-300">
-                <div className="text-accent mb-3">
-                  <Target className="h-5 w-5" />
-                </div>
-                <p className="text-xs text-muted-foreground uppercase tracking-wider mb-3">
+          <div className="flex flex-col gap-3">
+            <div
+              className={`about-card reveal ${visible ? "reveal-visible" : ""}`}
+              style={{ transitionDelay: "0.15s" }}
+            >
+              <div className="flex items-center gap-2.5 mb-3">
+                <Target size={16} className="text-accent shrink-0" />
+                <span className="font-mono text-[11px] text-muted-foreground uppercase tracking-wider font-semibold">
                   Currently focused on
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-sm">
-                    <Clock className="h-3.5 w-3.5 text-accent shrink-0" />
-                    <span className="text-foreground/80">Laravel + React apps</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm">
-                    <Clock className="h-3.5 w-3.5 text-accent shrink-0" />
-                    <span className="text-foreground/80">REST API development</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm">
-                    <Clock className="h-3.5 w-3.5 text-accent shrink-0" />
-                    <span className="text-foreground/80">Open source contributions</span>
-                  </div>
-                </div>
+                </span>
               </div>
-            </AnimatedSection>
+              <div className="space-y-2">
+                {aboutFocusList.map((item, i) => (
+                  <div key={i} className="flex items-center gap-2 text-[0.875rem] text-muted-foreground">
+                    <Clock size={13} className="text-accent shrink-0" />
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
 
-            {/* Stat cards */}
             <div className="space-y-2">
               {aboutStats.map((stat, i) => (
-                <AnimatedSection key={stat.label} delay={0.2 + i * 0.05}>
-                  <div className="rounded-xl bg-card border border-border p-4 hover:border-accent/30 transition-colors duration-300">
-                    <div className="flex items-center gap-3">
-                      <div className="text-accent shrink-0">
-                        {statIcons[stat.label]}
-                      </div>
-                      <div className="min-w-0">
-                        <p className="text-[11px] text-muted-foreground uppercase tracking-wider">{stat.label}</p>
-                        <p className="text-sm font-bold text-foreground font-mono truncate">{stat.value}</p>
-                      </div>
+                <div
+                  key={stat.label}
+                  className={`about-card reveal ${visible ? "reveal-visible" : ""}`}
+                  style={{ transitionDelay: `${0.2 + i * 0.05}s`, padding: "1rem" }}
+                >
+                  <div className="about-stat">
+                    <span className="about-stat-icon">{statIcons[stat.label]}</span>
+                    <div>
+                      <p className="text-[10px] font-mono text-muted-foreground uppercase tracking-wider">{stat.label}</p>
+                      <strong className="font-mono text-[0.9375rem]">{stat.value}</strong>
                     </div>
                   </div>
-                </AnimatedSection>
+                </div>
               ))}
             </div>
           </div>
