@@ -12,7 +12,7 @@ export function HeroSection() {
       className="relative min-h-[calc(100vh-4rem)] flex items-center px-4 sm:px-6 pt-24 sm:pt-28 pb-16 overflow-hidden"
     >
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-accent/5 via-background to-background pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-accent/5 via-background to-background pointer-events-none" />
 
       <div className="max-w-3xl mx-auto w-full relative">
         {/* Status badge */}
@@ -75,7 +75,7 @@ export function HeroSection() {
               e.preventDefault();
               document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-accent !text-[#fff] rounded-lg font-medium text-sm hover:bg-accent/90 transition-all duration-200 hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-[#fff]! rounded-lg font-medium text-sm hover:bg-accent/90 transition-all duration-200 hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5"
           >
             View Projects
             <ArrowDown className="h-4 w-4" />

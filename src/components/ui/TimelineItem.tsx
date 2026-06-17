@@ -10,10 +10,10 @@ export function TimelineItem({ experience }: TimelineItemProps) {
   return (
     <div className="relative pl-8">
       {/* Vertical line — stops before the gap */}
-      <div className="absolute left-[5px] top-2 bottom-0 w-px bg-border" />
+      <div className="absolute left-1.25 top-2 bottom-0 w-px bg-border" />
 
       {/* Dot marker */}
-      <div className="absolute left-0 top-1.5 w-[11px] h-[11px] rounded-full border-2 border-accent bg-card ring-4 ring-background" />
+      <div className="absolute left-0 top-1.5 w-2.75 h-2.75 rounded-full border-2 border-accent bg-card ring-4 ring-background" />
 
       {/* Content */}
       <div className="ml-3">
