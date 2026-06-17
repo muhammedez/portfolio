@@ -19,7 +19,7 @@ export function ExperienceSection() {
         </AnimatedSection>
 
         <motion.div
-          className="max-w-3xl"
+          className="max-w-3xl space-y-14"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"

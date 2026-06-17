@@ -50,9 +50,9 @@ export const projects: Project[] = [
   {
     id: "ecommerce-platform",
     title: "E-Commerce Platform",
-    problem: "Small businesses need an affordable way to sell online without paying high platform fees.",
+    problem: "Small businesses lose sales to high platform fees and rigid storefront tools.",
     description:
-      "A full-featured e-commerce platform with product management, cart, checkout, order tracking, and an admin dashboard. Built with Laravel on the backend and React on the frontend.",
+      "Built a full-featured e-commerce platform handling product listings, cart, checkout, and order tracking — paired with an admin dashboard for inventory and sales oversight.",
     stack: ["Laravel", "React", "MySQL", "Tailwind CSS", "Livewire"],
     github: "https://github.com/muhammedez/ecommerce-platform",
     featured: true,
@@ -60,9 +60,9 @@ export const projects: Project[] = [
   {
     id: "blog-api",
     title: "Headless Blog API",
-    problem: "Content creators need a reliable, version-controlled way to manage blog content across multiple frontends.",
+    problem: "Content teams waste time re-publishing the same posts across different frontends.",
     description:
-      "A RESTful API for managing blog posts, categories, and authors. Features JWT authentication, role-based access, and full CRUD operations.",
+      "Designed a RESTful content API with JWT authentication and role-based access control, enabling a single blog backend to serve multiple client applications.",
     stack: ["Laravel", "PHP", "MySQL", "REST API", "JWT"],
     github: "https://github.com/muhammedez/blog-api",
     featured: true,
@@ -70,9 +70,9 @@ export const projects: Project[] = [
   {
     id: "portfolio-generator",
     title: "Portfolio Generator",
-    problem: "Developers spend too much time building their portfolio instead of showcasing their work.",
+    problem: "Developers spend more time building their portfolio than showcasing their actual work.",
     description:
-      "A Next.js app that generates developer portfolios from a simple config file. Supports dark mode, responsive layouts, and easy deployment to Vercel.",
+      "A Next.js tool that turns a simple config file into a polished developer portfolio — dark mode, responsive layouts, and one-click Vercel deployment included.",
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "MDX"],
     github: "https://github.com/muhammedez/portfolio-generator",
     live: "https://portfolio-gen.vercel.app",
@@ -81,9 +81,9 @@ export const projects: Project[] = [
   {
     id: "weather-dashboard",
     title: "Weather Dashboard",
-    problem: "Checking the weather across multiple cities requires opening several tabs — a unified view saves time.",
+    problem: "Switching between tabs to check forecasts for different cities is slow and distracting.",
     description:
-      "A weather dashboard that displays real-time forecasts for multiple cities. Features location search, 7-day forecasts, and animated weather icons.",
+      "Real-time weather dashboard that aggregates forecasts for multiple cities in one view — location search, 7-day outlook, and smooth animated weather icons.",
     stack: ["React", "TypeScript", "Tailwind CSS", "OpenWeather API"],
     github: "https://github.com/muhammedez/weather-dashboard",
     live: "https://weather-dash-demo.vercel.app",
@@ -92,9 +92,9 @@ export const projects: Project[] = [
   {
     id: "inventory-system",
     title: "Inventory Management System",
-    problem: "Tracking stock manually with spreadsheets leads to errors and overselling.",
+    problem: "Manual stock tracking in spreadsheets leads to costly errors and overselling.",
     description:
-      "A web-based inventory system with barcode scanning, stock alerts, supplier management, and sales reporting. Built for small to medium retailers.",
+      "Web-based inventory system with barcode scanning, low-stock alerts, supplier tracking, and sales reporting — built to replace error-prone spreadsheets for small retailers.",
     stack: ["Laravel", "Livewire", "MySQL", "Alpine.js", "Tailwind CSS"],
     github: "https://github.com/muhammedez/inventory-system",
     featured: false,
@@ -108,9 +108,9 @@ export const experience: Experience[] = [
     role: "Full Stack Developer",
     period: "2024 – Present",
     bullets: [
-      "Built and deployed full-stack web applications using Laravel, React, and Next.js for small businesses and startups.",
-      "Developed RESTful APIs with Laravel, integrating payment gateways and third-party services.",
-      "Created responsive, accessible user interfaces with Tailwind CSS and modern frontend tooling.",
+      "Design, build, and deploy full-stack web applications for small businesses and startups using Laravel, React, and Next.js.",
+      "Engineer RESTful APIs with Laravel, handling authentication, payment integrations, and third-party service connections.",
+      "Craft responsive, accessible interfaces with Tailwind CSS and modern component-driven workflows.",
     ],
   },
   {
@@ -119,9 +119,9 @@ export const experience: Experience[] = [
     role: "Web Developer",
     period: "2023 – 2024",
     bullets: [
-      "Delivered web development projects for local businesses, including landing pages, e-commerce sites, and custom CMS solutions.",
-      "Built custom Laravel applications and integrated third-party APIs for client projects.",
-      "Managed end-to-end project delivery: requirements gathering, development, testing, and deployment.",
+      "Delivered end-to-end web projects — landing pages, e-commerce storefronts, and custom CMS solutions — for local businesses.",
+      "Built tailored Laravel backends and integrated external APIs to meet specific client requirements.",
+      "Owned the full project lifecycle: gathering requirements, scoping, development, QA, and deployment.",
     ],
   },
   {
@@ -130,9 +130,9 @@ export const experience: Experience[] = [
     role: "Learning & Building",
     period: "2022 – 2023",
     bullets: [
-      "Mastered full-stack web development fundamentals: HTML, CSS, JavaScript, PHP, and SQL.",
-      "Built personal projects and contributed to open-source repositories on GitHub.",
-      "Completed online certifications in Laravel, React, and modern web development.",
+      "Mastered core web fundamentals — HTML, CSS, JavaScript, PHP, and SQL — through hands-on building and online coursework.",
+      "Built a portfolio of personal projects and contributed to open-source repositories on GitHub.",
+      "Completed industry-recognized certifications in Laravel, React, and modern web development practices.",
     ],
   },
 ];
