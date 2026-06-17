@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useActiveSection } from "@/hooks/use-active-section";
 import { navItems, siteConfig } from "@/lib/data";
-import { Sun, Moon, Menu, X } from "lucide-react";
+import { Sun, Moon, Menu, X, FileDown } from "lucide-react";
 
 export function Navbar() {
   const activeSection = useActiveSection();
@@ -68,12 +68,20 @@ export function Navbar() {
               </li>
             );
           })}
+          <a href="/cv.pdf" className="btn-outline" style={{ padding: "0.35rem 0.85rem", fontSize: "0.75rem" }}>
+            <FileDown size={12} />
+            Resume
+          </a>
           <button className="theme-btn" onClick={toggleTheme} aria-label="Toggle theme">
             {isDark ? <Sun size={16} /> : <Moon size={16} />}
           </button>
         </ul>
 
         <div className="navbar-mobile-actions">
+          <a href="/cv.pdf" className="btn-outline" style={{ padding: "0.35rem 0.75rem", fontSize: "0.75rem" }}>
+            <FileDown size={12} />
+            Resume
+          </a>
           <button className="theme-btn" onClick={toggleTheme} aria-label="Toggle theme">
             {isDark ? <Sun size={16} /> : <Moon size={16} />}
           </button>
@@ -108,6 +116,14 @@ export function Navbar() {
               </a>
             );
           })}
+          <a
+            href="/cv.pdf"
+            className="mobile-nav-link"
+            style={{ display: "flex", alignItems: "center", gap: "0.35rem", color: "var(--accent)" }}
+          >
+            <FileDown size={14} />
+            Resume
+          </a>
         </div>
       )}
     </>
