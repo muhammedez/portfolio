@@ -2,94 +2,112 @@
 
 import { motion } from "framer-motion";
 import { TypewriterText } from "@/components/ui/TypewriterText";
-import { siteConfig, typewriterStrings } from "@/lib/data";
-import { ArrowDown, FileDown } from "lucide-react";
+import { siteConfig, typewriterStrings, heroTechChips } from "@/lib/data";
+import { ArrowDown } from "lucide-react";
 
 export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6"
+      className="relative min-h-[calc(100vh-4rem)] flex items-center px-4 sm:px-6 pt-24 sm:pt-28 pb-16"
     >
-      <div className="max-w-4xl mx-auto text-center">
-        {/* Greeting */}
-        <motion.p
-          className="text-muted text-base sm:text-lg mb-4 font-mono"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          Hi, my name is
-        </motion.p>
+      <div className="max-w-2xl mx-auto w-full text-center">
+            {/* Status badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+            >
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/30 bg-accent/5 text-accent text-sm font-medium mb-6">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+                </span>
+                Open to junior/full-stack roles
+              </span>
+            </motion.div>
 
-        {/* Name */}
-        <motion.h1
-          className="text-foreground font-bold tracking-[-0.03em] leading-none mb-4"
-          style={{ fontSize: "clamp(48px, 8vw, 96px)" }}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          {siteConfig.name}
-        </motion.h1>
+            {/* Name */}
+            <motion.h1
+              className="text-foreground font-bold tracking-[-0.03em] leading-[1.05] mb-3"
+              style={{ fontSize: "clamp(40px, 7vw, 72px)" }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              {siteConfig.name}
+            </motion.h1>
 
-        {/* Typewriter */}
-        <motion.div
-          className="text-2xl sm:text-3xl md:text-4xl text-muted font-medium mb-6 h-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-        >
-          <TypewriterText strings={typewriterStrings} />
-        </motion.div>
+            {/* Typewriter */}
+            <motion.div
+              className="text-xl sm:text-2xl md:text-3xl text-muted font-medium mb-4 h-10"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.35 }}
+            >
+              <TypewriterText strings={typewriterStrings} />
+            </motion.div>
 
-        {/* Bio */}
-        <motion.p
-          className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-        >
-          {siteConfig.bio}
-        </motion.p>
+            {/* Bio */}
+            <motion.p
+              className="text-muted-foreground text-base sm:text-lg max-w-xl mx-auto mb-8 leading-relaxed"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            >
+              {siteConfig.bio}
+            </motion.p>
 
-        {/* CTAs */}
-        <motion.div
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.0 }}
-        >
-          <a
-            href="#projects"
-            onClick={(e) => {
-              e.preventDefault();
-              document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
-            }}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white rounded-lg font-medium text-sm hover:bg-accent/90 transition-colors duration-200"
-          >
-            View Projects
-            <ArrowDown className="h-4 w-4" />
-          </a>
-          <a
-            href="/cv.pdf"
-            className="inline-flex items-center gap-2 px-6 py-3 border border-border rounded-lg font-medium text-sm text-foreground hover:border-accent hover:text-accent transition-colors duration-200"
-          >
-            Download CV
-            <FileDown className="h-4 w-4" />
-          </a>
-        </motion.div>
+            {/* CTAs */}
+            <motion.div
+              className="flex items-center justify-center mb-8"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.65 }}
+            >
+              <a
+                href="#projects"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white rounded-lg font-medium text-sm hover:bg-accent/90 transition-all duration-200 hover:shadow-lg hover:shadow-accent/25"
+              >
+                View Projects
+                <ArrowDown className="h-4 w-4" />
+              </a>
+            </motion.div>
+
+            {/* Tech stack chips */}
+            <motion.div
+              className="flex flex-wrap gap-2 justify-center"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+            >
+              {heroTechChips.map((tech, i) => (
+                <motion.span
+                  key={tech}
+                  className="px-3 py-1.5 text-xs font-mono rounded-md border border-border bg-surface text-muted-foreground hover:border-accent/50 hover:text-accent transition-colors duration-200 cursor-default"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3, delay: 0.85 + i * 0.05 }}
+                >
+                  {tech}
+                </motion.span>
+              ))}
+            </motion.div>
       </div>
 
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
+        transition={{ delay: 1.2 }}
       >
         <motion.div
-          animate={{ y: [0, 8, 0] }}
+          animate={{ y: [0, 6, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="w-5 h-8 border-2 border-muted rounded-full flex items-start justify-center p-1"
         >

@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Muhammed | Full Stack Web Developer",
   description:
-    "Portfolio of Muhammed, a full stack web developer building Laravel, React, Next.js, and Android projects.",
+    "Portfolio of Muhammed, a full stack web developer building Laravel, React, and Next.js projects.",
   keywords: [
     "Full Stack Developer",
     "Laravel Developer",

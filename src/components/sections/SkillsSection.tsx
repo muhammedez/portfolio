@@ -7,34 +7,30 @@ import { skillGroups } from "@/lib/data";
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="py-20 sm:py-28 px-4 sm:px-6">
-      <div className="max-w-5xl mx-auto">
+    <section id="skills" className="py-24 sm:py-32 px-4 sm:px-6">
+      <div className="max-w-3xl mx-auto">
         <AnimatedSection>
-          <h2 className="text-4xl font-bold tracking-[-0.03em] text-foreground mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-[-0.03em] text-foreground mb-2">
             Skills
           </h2>
-          <p className="text-muted-foreground mb-12 max-w-2xl text-base leading-relaxed">
-            Technologies and tools I work with regularly. No arbitrary ratings — just what I use day to day.
+          <p className="text-muted-foreground text-base mb-10">
+            Technologies and tools I use regularly across the stack.
           </p>
         </AnimatedSection>
 
         <motion.div
-          className="grid md:grid-cols-2 gap-10"
+          className="space-y-6"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
         >
           {skillGroups.map((group) => (
-            <motion.div
-              key={group.category}
-              variants={staggerItem}
-              className="rounded-xl border border-border bg-card p-6"
-            >
-              <h3 className="text-lg font-bold text-foreground mb-4">
+            <motion.div key={group.category} variants={staggerItem}>
+              <p className="text-xs font-mono text-muted-foreground uppercase tracking-wider mb-2">
                 {group.category}
-              </h3>
-              <div className="flex flex-wrap gap-2">
+              </p>
+              <div className="flex flex-wrap gap-1.5">
                 {group.skills.map((skill) => (
                   <SkillBadge key={skill} skill={skill} />
                 ))}

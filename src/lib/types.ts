@@ -1,6 +1,7 @@
 export interface Project {
   id: string;
   title: string;
+  problem: string;
   description: string;
   stack: string[];
   github: string;
