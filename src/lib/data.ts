@@ -1,7 +1,7 @@
 import type { Project, Experience, SkillGroup, NavItem } from "./types";
 
 export const siteConfig = {
-  name: "Muhammed",
+  name: "Mahamed Izedin",
   role: "Full Stack Web Developer",
   title: "Full Stack Developer",
   bio: "I build complete web applications — Laravel backends, React frontends, and Next.js sites. Focused on clean code, practical solutions, and creating software that solves real problems.",
