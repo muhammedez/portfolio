@@ -75,7 +75,7 @@ export function HeroSection() {
               e.preventDefault();
               document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-[#fff]! rounded-lg font-medium text-sm hover:bg-accent/90 transition-all duration-200 hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-accent !text-[#fff] rounded-lg font-medium text-sm hover:bg-accent/90 transition-all duration-200 hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5"
           >
             View Projects
             <ArrowDown className="h-4 w-4" />
