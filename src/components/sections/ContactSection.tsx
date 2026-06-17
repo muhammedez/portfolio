@@ -157,7 +157,7 @@ export function ContactSection() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-accent text-white rounded-lg font-medium text-sm hover:bg-accent/90 transition-all duration-200 hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5"
+                    className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-accent !text-[#fff] rounded-lg font-medium text-sm hover:bg-accent/90 transition-all duration-200 hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5"
                   >
                     <Send className="h-4 w-4" />
                     Send Message

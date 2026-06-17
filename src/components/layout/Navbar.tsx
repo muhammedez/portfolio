@@ -75,7 +75,7 @@ export function Navbar() {
             <ThemeToggle />
             <a
               href="/cv.pdf"
-              className="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-accent border border-accent/30 hover:bg-accent hover:text-white rounded-lg transition-all duration-200"
+              className="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-accent border border-accent/30 hover:bg-accent hover:!text-[#fff] rounded-lg transition-all duration-200"
             >
               <FileDown className="h-4 w-4" />
               <span>CV</span>
@@ -87,7 +87,7 @@ export function Navbar() {
         <div className="flex items-center gap-2 md:hidden">
           <a
             href="/cv.pdf"
-            className="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-accent border border-accent/30 hover:bg-accent hover:text-white rounded-md transition-all duration-200"
+            className="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-accent border border-accent/30 hover:bg-accent hover:!text-[#fff] rounded-md transition-all duration-200"
           >
             <FileDown className="h-3.5 w-3.5" />
             <span>CV</span>
