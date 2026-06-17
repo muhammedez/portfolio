@@ -1,13 +1,13 @@
 import type { Project, Experience, SkillGroup, NavItem } from "./types";
 
 export const siteConfig = {
-  name: "Alex Chen",
-  role: "Fullstack Developer",
-  bio: "I craft performant, accessible web experiences with modern JavaScript. Passionate about clean architecture, developer tooling, and open source.",
-  email: "alex@devportfolio.io",
-  github: "https://github.com/alexchen",
-  linkedin: "https://linkedin.com/in/alexchen",
-  twitter: "https://x.com/alexchen_dev",
+  name: "Muhammed Izedin",
+  role: "Full Stack Web Developer",
+  bio: "I build responsive web applications using Laravel, React, Next.js, Livewire, Tailwind CSS, and MySQL.",
+  email: "muhammadezedn@gmail.com",
+  github: "https://github.com/muhammedez",
+  linkedin: "LinkedIn",
+  twitter: "X",
 };
 
 export const navItems: NavItem[] = [

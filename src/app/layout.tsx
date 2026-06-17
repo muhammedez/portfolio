@@ -14,17 +14,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Alex Chen — Fullstack Developer",
+  title: "Muhammed | Full Stack Web Developer",
   description:
-    "Fullstack developer portfolio. I craft performant, accessible web experiences with modern JavaScript.",
+    "Portfolio of Muhammed, a full stack web developer building Laravel, React, Next.js, and Android projects.",
   keywords: [
-    "Fullstack Developer",
-    "React Engineer",
+    "Full Stack Developer",
+    "Laravel Developer",
+    "React Developer",
     "Next.js",
     "TypeScript",
     "Portfolio",
   ],
-  authors: [{ name: "Alex Chen" }],
+  authors: [{ name: "Muhammed" }],
   icons: {
     icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg",
   },
