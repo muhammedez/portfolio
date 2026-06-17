@@ -9,94 +9,98 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-[calc(100vh-4rem)] flex items-center px-4 sm:px-6 pt-24 sm:pt-28 pb-16"
+      className="relative min-h-[calc(100vh-4rem)] flex items-center px-4 sm:px-6 pt-24 sm:pt-28 pb-16 overflow-hidden"
     >
-      <div className="max-w-2xl mx-auto w-full text-center">
-            {/* Status badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-            >
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/30 bg-accent/5 text-accent text-sm font-medium mb-6">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
-                </span>
-                Open to junior/full-stack roles
-              </span>
-            </motion.div>
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-accent/5 via-background to-background pointer-events-none" />
 
-            {/* Name */}
-            <motion.h1
-              className="text-foreground font-bold tracking-[-0.03em] leading-[1.05] mb-3"
-              style={{ fontSize: "clamp(40px, 7vw, 72px)" }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              {siteConfig.name}
-            </motion.h1>
+      <div className="max-w-3xl mx-auto w-full relative">
+        {/* Status badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
+          className="text-center"
+        >
+          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/30 bg-accent/5 text-accent text-sm font-medium mb-6">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+            </span>
+            Open to junior/full-stack roles
+          </span>
+        </motion.div>
 
-            {/* Typewriter */}
-            <motion.div
-              className="text-xl sm:text-2xl md:text-3xl text-muted font-medium mb-4 h-10"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.35 }}
-            >
-              <TypewriterText strings={typewriterStrings} />
-            </motion.div>
+        {/* Name */}
+        <motion.h1
+          className="text-foreground font-bold tracking-[-0.03em] leading-[1.05] mb-3 text-center"
+          style={{ fontSize: "clamp(40px, 7vw, 68px)" }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          {siteConfig.name}
+        </motion.h1>
 
-            {/* Bio */}
-            <motion.p
-              className="text-muted-foreground text-base sm:text-lg max-w-xl mx-auto mb-8 leading-relaxed"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-            >
-              {siteConfig.bio}
-            </motion.p>
+        {/* Typewriter */}
+        <motion.div
+          className="text-xl sm:text-2xl md:text-3xl text-muted font-medium mb-4 h-10 text-center"
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.35 }}
+        >
+          <TypewriterText strings={typewriterStrings} />
+        </motion.div>
 
-            {/* CTAs */}
-            <motion.div
-              className="flex items-center justify-center mb-8"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.65 }}
-            >
-              <a
-                href="#projects"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white rounded-lg font-medium text-sm hover:bg-accent/90 transition-all duration-200 hover:shadow-lg hover:shadow-accent/25"
-              >
-                View Projects
-                <ArrowDown className="h-4 w-4" />
-              </a>
-            </motion.div>
+        {/* Bio */}
+        <motion.p
+          className="text-muted-foreground text-base sm:text-lg max-w-xl mx-auto mb-8 leading-relaxed text-center"
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+        >
+          {siteConfig.bio}
+        </motion.p>
 
-            {/* Tech stack chips */}
-            <motion.div
-              className="flex flex-wrap gap-2 justify-center"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.8 }}
+        {/* CTA */}
+        <motion.div
+          className="flex justify-center mb-8"
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.65 }}
+        >
+          <a
+            href="#projects"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white rounded-lg font-medium text-sm hover:bg-accent/90 transition-all duration-200 hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5"
+          >
+            View Projects
+            <ArrowDown className="h-4 w-4" />
+          </a>
+        </motion.div>
+
+        {/* Tech stack chips */}
+        <motion.div
+          className="flex flex-wrap gap-2 justify-center"
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
+        >
+          {heroTechChips.map((tech, i) => (
+            <motion.span
+              key={tech}
+              className="px-3 py-1.5 text-xs font-mono rounded-md border border-border bg-surface/50 text-muted-foreground hover:border-accent/40 hover:text-accent transition-colors duration-200 cursor-default"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3, delay: 0.85 + i * 0.05 }}
             >
-              {heroTechChips.map((tech, i) => (
-                <motion.span
-                  key={tech}
-                  className="px-3 py-1.5 text-xs font-mono rounded-md border border-border bg-surface text-muted-foreground hover:border-accent/50 hover:text-accent transition-colors duration-200 cursor-default"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3, delay: 0.85 + i * 0.05 }}
-                >
-                  {tech}
-                </motion.span>
-              ))}
-            </motion.div>
+              {tech}
+            </motion.span>
+          ))}
+        </motion.div>
       </div>
 
       {/* Scroll indicator */}

@@ -7,18 +7,26 @@ import type { Project } from "@/lib/types";
 
 interface ProjectCardProps {
   project: Project;
-  featured?: boolean;
+  variant?: "featured" | "compact";
 }
 
-export function ProjectCard({ project, featured }: ProjectCardProps) {
+export function ProjectCard({ project, variant = "compact" }: ProjectCardProps) {
+  const isFeatured = variant === "featured";
+
   return (
     <motion.div
-      className="group relative rounded-xl border border-border bg-card transition-all duration-300 hover:border-accent/60 hover:shadow-md overflow-hidden"
-      whileHover={{ y: -2 }}
+      className={`group relative rounded-xl border bg-card transition-all duration-300 hover:shadow-md overflow-hidden ${
+        isFeatured
+          ? "border-accent/20 hover:border-accent/50 shadow-sm"
+          : "border-border hover:border-accent/40"
+      }`}
+      whileHover={{ y: isFeatured ? -3 : -2 }}
       transition={{ type: "spring", stiffness: 200, damping: 20 }}
     >
       {/* Screenshot area */}
-      <div className={`relative overflow-hidden bg-surface/50 border-b border-border/50 ${featured ? "h-40" : "h-36"}`}>
+      <div className={`relative overflow-hidden border-b border-border/50 ${
+        isFeatured ? "h-44 sm:h-48" : "h-36"
+      }`}>
         {project.image ? (
           <img
             src={project.image}
@@ -26,39 +34,52 @@ export function ProjectCard({ project, featured }: ProjectCardProps) {
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center">
-            <ImageIcon className="h-6 w-6 text-muted-foreground/25" />
+          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-surface/80 via-surface/40 to-accent/5">
+            <div className="text-center">
+              <ImageIcon className="h-8 w-8 text-muted-foreground/20 mx-auto mb-1" />
+              {isFeatured && (
+                <span className="text-[10px] text-muted-foreground/30 font-mono uppercase tracking-wider">
+                  Screenshot
+                </span>
+              )}
+            </div>
           </div>
         )}
       </div>
 
-      <div className="p-5 sm:p-6">
-        {/* Title */}
-        <h3 className={`font-bold tracking-tight text-foreground group-hover:text-accent transition-colors duration-200 mb-2 ${featured ? "text-lg" : "text-base"}`}>
+      <div className={`${isFeatured ? "p-5 sm:p-6" : "p-4 sm:p-5"}`}>
+        <h3 className={`font-bold tracking-tight text-foreground group-hover:text-accent transition-colors duration-200 mb-2 ${
+          isFeatured ? "text-lg" : "text-base"
+        }`}>
           {project.title}
         </h3>
 
-        {/* Description */}
-        <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-          <span className="font-medium text-foreground/80">{project.problem}</span>{" "}
-          {project.description}
+        <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+          <span className="font-medium text-foreground/80">{project.problem}</span>
+          {isFeatured && <br />}
+          {isFeatured ? " " : ""}{project.description}
         </p>
 
-        {/* Tech stack */}
+        {!isFeatured && (
+          <p className="text-xs text-muted-foreground/60 leading-relaxed mb-3 line-clamp-2">
+            {project.description}
+          </p>
+        )}
+
         <div className="flex flex-wrap gap-1.5 mb-4">
           {project.stack.map((tech) => (
             <SkillBadge key={tech} skill={tech} />
           ))}
         </div>
 
-        {/* Links */}
-        <div className="flex items-center gap-4 pt-3 border-t border-border/50">
+        <div className={`flex items-center gap-4 pt-3 border-t ${
+          isFeatured ? "border-accent/20" : "border-border/50"
+        }`}>
           <a
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-accent transition-colors duration-200"
-            aria-label={`${project.title} GitHub repository`}
           >
             <Github className="h-3.5 w-3.5" />
             <span>Code</span>
@@ -69,7 +90,6 @@ export function ProjectCard({ project, featured }: ProjectCardProps) {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-accent transition-colors duration-200"
-              aria-label={`${project.title} live demo`}
             >
               <ExternalLink className="h-3.5 w-3.5" />
               <span>Live Demo</span>
