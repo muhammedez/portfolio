@@ -7,7 +7,7 @@ import { projects } from "@/lib/data";
 export function ProjectsSection() {
   return (
     <section id="projects" className="py-24 sm:py-32 px-4 sm:px-6 bg-surface/30">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-3xl mx-auto">
         <AnimatedSection>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-[-0.03em] text-foreground mb-2">
             Projects
