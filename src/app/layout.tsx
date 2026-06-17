@@ -26,9 +26,6 @@ export const metadata: Metadata = {
     "Portfolio",
   ],
   authors: [{ name: "Muhammed" }],
-  icons: {
-    icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg",
-  },
 };
 
 export default function RootLayout({
