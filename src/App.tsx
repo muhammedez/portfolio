@@ -10,7 +10,7 @@ import { SkillsSection } from "@/components/sections/SkillsSection";
 import { ExperienceSection } from "@/components/sections/ExperienceSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 
-export default function Home() {
+export function App() {
   return (
     <AnimatePresence mode="wait">
       <motion.div

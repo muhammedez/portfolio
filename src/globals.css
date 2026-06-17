@@ -24,8 +24,8 @@
   --color-ring: var(--ring);
   --color-white: #ffffff;
   --color-black: #000000;
-  --font-sans: var(--font-lexend);
-  --font-mono: var(--font-jetbrains-mono);
+  --font-sans: "Lexend", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
