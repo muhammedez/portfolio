@@ -82,13 +82,6 @@
   }
 }
 
-/* Custom cursor - hidden on touch devices */
-@media (pointer: coarse) {
-  .custom-cursor {
-    display: none !important;
-  }
-}
-
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;

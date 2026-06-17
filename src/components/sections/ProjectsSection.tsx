@@ -11,7 +11,7 @@ export function ProjectsSection() {
 
   return (
     <section id="projects" className="py-20 sm:py-28 px-4 sm:px-6 bg-surface/30">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <AnimatedSection>
           <h2 className="text-4xl font-bold tracking-[-0.03em] text-foreground mb-4">
             Projects

@@ -8,7 +8,7 @@ import { User } from "lucide-react";
 export function AboutSection() {
   return (
     <section id="about" className="py-20 sm:py-28 px-4 sm:px-6">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <AnimatedSection>
           <h2 className="text-4xl font-bold tracking-[-0.03em] text-foreground mb-12">
             About Me
