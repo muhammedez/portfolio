@@ -12,7 +12,7 @@ interface AnimatedSectionProps {
 const variants = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0 },
-};
+} as const;
 
 export function AnimatedSection({
   children,
@@ -41,9 +41,9 @@ export const staggerContainer = {
       staggerChildren: 0.08,
     },
   },
-};
+} as const;
 
 export const staggerItem = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-};
+} as const;
