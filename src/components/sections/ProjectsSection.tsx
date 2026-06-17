@@ -23,7 +23,7 @@ export function ProjectsSection() {
 
         {/* Featured Projects */}
         <motion.div
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6"
+          className="grid md:grid-cols-2 gap-6 mb-6"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
