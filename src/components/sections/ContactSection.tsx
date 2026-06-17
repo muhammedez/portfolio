@@ -1,101 +1,131 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { type FormEvent } from "react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { siteConfig } from "@/lib/data";
-import { Github, Linkedin, Mail, Check, ArrowUpRight } from "lucide-react";
+import { Github, Linkedin, Send, Twitter } from "lucide-react";
 
 export function ContactSection() {
-  const [copied, setCopied] = useState(false);
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const name = data.get("name") as string;
+    const email = data.get("email") as string;
+    const subject = data.get("subject") as string;
+    const message = data.get("message") as string;
 
-  const handleCopyEmail = async () => {
-    try {
-      await navigator.clipboard.writeText(siteConfig.email);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch {
-      const textArea = document.createElement("textarea");
-      textArea.value = siteConfig.email;
-      document.body.appendChild(textArea);
-      textArea.select();
-      document.execCommand("copy");
-      document.body.removeChild(textArea);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    }
+    const body = `From: ${name} (${email})\n\n${message}`;
+    window.location.href = `mailto:${siteConfig.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    form.reset();
   };
-
-  const contactLinks = [
-    {
-      label: "Email",
-      href: `mailto:${siteConfig.email}`,
-      icon: Mail,
-    },
-    {
-      label: "GitHub",
-      href: siteConfig.github,
-      icon: Github,
-    },
-    {
-      label: "LinkedIn",
-      href: siteConfig.linkedin,
-      icon: Linkedin,
-    },
-  ];
 
   return (
     <section id="contact" className="py-24 sm:py-32 px-4 sm:px-6">
-      <div className="max-w-xl mx-auto">
+      <div className="max-w-lg mx-auto">
         <AnimatedSection>
-          <div className="rounded-2xl bg-card border border-border p-8 sm:p-10 text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-[-0.03em] text-foreground mb-3">
-              Let&apos;s work together
-            </h2>
-            <p className="text-muted-foreground text-base mb-2 max-w-md mx-auto leading-relaxed">
-              I&apos;m open to junior developer roles, freelance projects, and collaboration opportunities.
-            </p>
-            <p className="text-muted-foreground/80 text-sm mb-8 max-w-md mx-auto">
-              Whether you have a project in mind or just want to chat about tech — reach out and I&apos;ll get back to you.
-            </p>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-[-0.03em] text-foreground mb-2 text-center">
+            Get in touch
+          </h2>
+          <p className="text-muted-foreground text-base mb-10 text-center">
+            Have a question or want to work together? Send me a message.
+          </p>
+        </AnimatedSection>
 
-            {/* Contact buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
-              {contactLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target={link.label !== "Email" ? "_blank" : undefined}
-                  rel={link.label !== "Email" ? "noopener noreferrer" : undefined}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg border border-border bg-surface hover:border-accent/50 hover:text-accent transition-all duration-200 text-sm font-medium"
-                >
-                  <link.icon className="h-4 w-4" />
-                  <span>{link.label}</span>
-                  <ArrowUpRight className="h-3.5 w-3.5 text-muted-foreground/50" />
-                </a>
-              ))}
-            </div>
-
-            {/* Copy email */}
-            <div className="inline-flex items-center gap-2 text-sm">
-              <span className="text-muted-foreground">Or copy my email:</span>
+        <AnimatedSection delay={0.1}>
+          <div className="rounded-2xl bg-card border border-border p-6 sm:p-8">
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="name" className="block text-xs font-mono text-muted-foreground uppercase tracking-wider mb-1.5">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    className="w-full px-3 py-2.5 rounded-lg border border-border bg-surface text-sm text-foreground placeholder:text-muted-foreground/40 focus:outline-none focus:border-accent transition-colors duration-200"
+                    placeholder="Your name"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-xs font-mono text-muted-foreground uppercase tracking-wider mb-1.5">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    className="w-full px-3 py-2.5 rounded-lg border border-border bg-surface text-sm text-foreground placeholder:text-muted-foreground/40 focus:outline-none focus:border-accent transition-colors duration-200"
+                    placeholder="you@example.com"
+                  />
+                </div>
+              </div>
+              <div>
+                <label htmlFor="subject" className="block text-xs font-mono text-muted-foreground uppercase tracking-wider mb-1.5">
+                  Subject
+                </label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  required
+                  className="w-full px-3 py-2.5 rounded-lg border border-border bg-surface text-sm text-foreground placeholder:text-muted-foreground/40 focus:outline-none focus:border-accent transition-colors duration-200"
+                  placeholder="What's this about?"
+                />
+              </div>
+              <div>
+                <label htmlFor="message" className="block text-xs font-mono text-muted-foreground uppercase tracking-wider mb-1.5">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  rows={5}
+                  className="w-full px-3 py-2.5 rounded-lg border border-border bg-surface text-sm text-foreground placeholder:text-muted-foreground/40 focus:outline-none focus:border-accent transition-colors duration-200 resize-none"
+                  placeholder="Tell me about your project or opportunity..."
+                />
+              </div>
               <button
-                onClick={handleCopyEmail}
-                className="font-mono text-foreground hover:text-accent transition-colors duration-200 cursor-pointer"
-                aria-label="Copy email address"
+                type="submit"
+                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-accent text-white rounded-lg font-medium text-sm hover:bg-accent/90 transition-all duration-200 hover:shadow-lg hover:shadow-accent/25"
               >
-                {siteConfig.email}
+                <Send className="h-4 w-4" />
+                Send Message
               </button>
-              {copied && (
-                <motion.span
-                  className="inline-flex items-center gap-1 text-accent text-sm font-medium"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                >
-                  <Check className="h-4 w-4" />
-                  Copied!
-                </motion.span>
-              )}
+            </form>
+
+            <div className="mt-6 pt-6 border-t border-border/50 flex items-center justify-center gap-2">
+              <a
+                href={siteConfig.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium text-muted-foreground hover:text-accent hover:bg-surface transition-colors duration-200"
+              >
+                <Github className="h-3.5 w-3.5" />
+                GitHub
+              </a>
+              <a
+                href={siteConfig.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium text-muted-foreground hover:text-accent hover:bg-surface transition-colors duration-200"
+              >
+                <Linkedin className="h-3.5 w-3.5" />
+                LinkedIn
+              </a>
+              <a
+                href={siteConfig.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium text-muted-foreground hover:text-accent hover:bg-surface transition-colors duration-200"
+              >
+                <Twitter className="h-3.5 w-3.5" />
+                X
+              </a>
             </div>
           </div>
         </AnimatedSection>
