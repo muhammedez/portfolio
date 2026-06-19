@@ -31,7 +31,7 @@ export function SkillsSection() {
 
         <div className={`skills-grid reveal ${visible ? "reveal-visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
           {skillGroups.map((group) => (
-            <div key={group.category}>
+            <div key={group.category} className="skills-card">
               <h4 className="skills-category-title">
                 <span className="inline-flex items-center gap-1.5">
                   {categoryIcons[group.category]}

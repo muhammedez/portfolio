@@ -26,26 +26,46 @@ export function ProjectsSection() {
           A selection of things I&apos;ve built to solve real problems.
         </p>
 
-        <div className="grid sm:grid-cols-2 gap-4">
+        <div className="projects-grid">
           {projects.map((project, i) => (
             <div
               key={project.id}
               className={`case-study-card reveal ${visible ? "reveal-visible" : ""}`}
-              style={{ transitionDelay: `${0.1 + i * 0.08}s`, padding: 0, overflow: "hidden" }}
+              style={{ transitionDelay: `${0.1 + i * 0.08}s` }}
             >
-              <div className="project-image-main" style={{ borderRadius: 0, borderTopLeftRadius: 10, borderTopRightRadius: 10 }}>
+              <div className="project-image-main">
                 {project.image ? (
                   <img src={project.image} alt={project.title} className="project-image-img" />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-surface/80">
-                    <div className="text-center">
-                      <ImageIcon size={24} className="text-muted-foreground/20 mx-auto mb-1" />
-                      <span className="text-[10px] font-mono text-muted-foreground/30 uppercase tracking-wider">Screenshot</span>
+                  <div className="project-mockup" aria-hidden="true">
+                    <div className="project-mockup-window">
+                      <div className="project-mockup-toolbar">
+                        <span />
+                        <span />
+                        <span />
+                      </div>
+                      <div className="project-mockup-body">
+                        <div className="project-mockup-sidebar" />
+                        <div className="project-mockup-content">
+                          <div className="project-mockup-line project-mockup-line-lg" />
+                          <div className="project-mockup-line" />
+                          <div className="project-mockup-grid">
+                            <span />
+                            <span />
+                            <span />
+                            <span />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="project-mockup-label">
+                      <ImageIcon size={12} />
+                      Interface preview
                     </div>
                   </div>
                 )}
               </div>
-              <div style={{ padding: "1.5rem" }}>
+              <div className="project-card-body">
                 <h3 className="text-base font-bold tracking-tight text-foreground mb-3">
                   {project.title}
                 </h3>
