@@ -62,7 +62,6 @@ export const projects: Project[] = [
       "Built a full-featured e-commerce platform handling product listings, cart, checkout, and order tracking — paired with an admin dashboard for inventory and sales oversight.",
     stack: ["Laravel", "React", "MySQL", "Tailwind CSS", "Livewire"],
     github: "https://github.com/muhammedez/ecommerce-platform",
-    featured: true,
   },
   {
     id: "blog-api",
@@ -72,7 +71,6 @@ export const projects: Project[] = [
       "Designed a RESTful content API with JWT authentication and role-based access control, enabling a single blog backend to serve multiple client applications.",
     stack: ["Laravel", "PHP", "MySQL", "REST API", "JWT"],
     github: "https://github.com/muhammedez/blog-api",
-    featured: true,
   },
   {
     id: "portfolio-generator",
@@ -83,7 +81,6 @@ export const projects: Project[] = [
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "MDX"],
     github: "https://github.com/muhammedez/portfolio-generator",
     live: "https://portfolio-gen.vercel.app",
-    featured: false,
   },
   {
     id: "weather-dashboard",
@@ -94,7 +91,6 @@ export const projects: Project[] = [
     stack: ["React", "TypeScript", "Tailwind CSS", "OpenWeather API"],
     github: "https://github.com/muhammedez/weather-dashboard",
     live: "https://weather-dash-demo.vercel.app",
-    featured: false,
   },
   {
     id: "inventory-system",
@@ -104,7 +100,6 @@ export const projects: Project[] = [
       "Web-based inventory system with barcode scanning, low-stock alerts, supplier tracking, and sales reporting — built to replace error-prone spreadsheets for small retailers.",
     stack: ["Laravel", "Livewire", "MySQL", "Alpine.js", "Tailwind CSS"],
     github: "https://github.com/muhammedez/inventory-system",
-    featured: false,
   },
 ];
 

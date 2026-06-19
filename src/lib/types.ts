@@ -7,7 +7,6 @@ export interface Project {
   github: string;
   live?: string;
   image?: string;
-  featured: boolean;
 }
 
 export interface Experience {
