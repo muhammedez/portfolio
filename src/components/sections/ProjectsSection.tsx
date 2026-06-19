@@ -19,7 +19,7 @@ export function ProjectsSection() {
 
   return (
     <section ref={ref} id="projects" className="py-24 sm:py-32 px-4 sm:px-6 bg-surface/30">
-      <div className="max-w-3xl mx-auto">
+      <div className="section-container">
         <span className={`section-label reveal ${visible ? "reveal-visible" : ""}`}>Projects</span>
 
         <p className={`text-muted-foreground text-sm mb-8 reveal ${visible ? "reveal-visible" : ""}`} style={{ transitionDelay: "0.05s" }}>

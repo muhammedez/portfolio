@@ -26,7 +26,7 @@ export function SkillsSection() {
 
   return (
     <section ref={ref} id="skills" className="py-24 sm:py-32 px-4 sm:px-6">
-      <div className="max-w-3xl mx-auto">
+      <div className="section-container">
         <span className={`section-label reveal ${visible ? "reveal-visible" : ""}`}>Skills</span>
 
         <div className={`skills-grid reveal ${visible ? "reveal-visible" : ""}`} style={{ transitionDelay: "0.1s" }}>

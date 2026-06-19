@@ -142,6 +142,11 @@ button {
 }
 
 /* ================= SECTION LABEL ================= */
+.section-container {
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
 .section-label {
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -889,11 +894,6 @@ button {
 }
 
 /* ================= CONTACT ================= */
-.contact-shell {
-  max-width: 48rem;
-  margin: 0 auto;
-}
-
 .contact-intro {
   color: var(--muted-foreground);
   max-width: 38rem;

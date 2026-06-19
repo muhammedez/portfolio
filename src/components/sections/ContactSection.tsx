@@ -36,7 +36,7 @@ export function ContactSection() {
 
   return (
     <section ref={ref} id="contact" className="py-24 sm:py-32 px-4 sm:px-6">
-      <div className="contact-shell">
+      <div className="section-container">
         <span className={`section-label reveal ${visible ? "reveal-visible" : ""}`}>Contact</span>
 
         <p className={`contact-intro reveal ${visible ? "reveal-visible" : ""}`}>
