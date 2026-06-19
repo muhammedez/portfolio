@@ -4,7 +4,7 @@ export const siteConfig = {
   name: "Mahamed Izedin",
   role: "Full Stack Web Developer",
   title: "Full Stack Developer",
-  bio: "I build complete web applications — Laravel backends, React frontends, and Next.js sites. Focused on clean code, practical solutions, and creating software that solves real problems.",
+  bio: "I build Laravel + React applications for small businesses, startups, and teams that need practical software: clean interfaces, reliable backends, and features that solve real workflow problems.",
   email: "muhammadezedn@gmail.com",
   github: "https://github.com/muhammedez",
   linkedin: "https://linkedin.com/in/yourusername",

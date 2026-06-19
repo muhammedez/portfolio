@@ -1,5 +1,5 @@
 import { projects } from "@/lib/data";
-import { Github, ExternalLink, ImageIcon } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 export function ProjectsSection() {
@@ -33,48 +33,41 @@ export function ProjectsSection() {
               className={`case-study-card reveal ${visible ? "reveal-visible" : ""}`}
               style={{ transitionDelay: `${0.1 + i * 0.08}s` }}
             >
-              <div className="project-image-main">
-                {project.image ? (
-                  <img src={project.image} alt={project.title} className="project-image-img" />
-                ) : (
-                  <div className={`project-mockup project-mockup-${(i % 3) + 1}`} aria-hidden="true">
-                    <div className="project-mockup-window">
-                      <div className="project-mockup-toolbar">
-                        <span />
-                        <span />
-                        <span />
-                      </div>
-                      <div className="project-mockup-body">
-                        <div className="project-mockup-sidebar" />
-                        <div className="project-mockup-content">
-                          <div className="project-mockup-line project-mockup-line-lg" />
-                          <div className="project-mockup-line" />
-                          <div className="project-mockup-grid">
-                            <span />
-                            <span />
-                            <span />
-                            <span />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="project-mockup-label">
-                      <ImageIcon size={12} />
-                      Interface preview
-                    </div>
-                  </div>
-                )}
-              </div>
               <div className="project-card-body">
-                <h3 className="text-base font-bold tracking-tight text-foreground mb-3">
-                  {project.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-3">
-                  {project.problem}
-                </p>
-                <p className="project-card-summary text-muted-foreground/80 text-sm leading-relaxed">
-                  {project.description}
-                </p>
+                <div className="project-card-heading">
+                  <span className="project-card-index">{String(i + 1).padStart(2, "0")}</span>
+                  <h3>{project.title}</h3>
+                </div>
+
+                <div className="project-screenshot" aria-label={`${project.title} screenshot preview`}>
+                  {project.image ? (
+                    <img src={project.image} alt={`${project.title} screenshot`} />
+                  ) : (
+                    <div className="project-screenshot-placeholder" aria-hidden="true">
+                      <div className="project-screenshot-bar">
+                        <span />
+                        <span />
+                        <span />
+                      </div>
+                      <div className="project-screenshot-body">
+                        <span className="project-screenshot-line project-screenshot-line-short" />
+                        <span className="project-screenshot-line" />
+                        <span className="project-screenshot-block" />
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                <div className="project-case-block">
+                  <span>Problem</span>
+                  <p>{project.problem}</p>
+                </div>
+
+                <div className="project-case-block">
+                  <span>Build</span>
+                  <p>{project.description}</p>
+                </div>
+
                 <div className="project-stack">
                   {project.stack.map((tech) => (
                     <span key={tech} className="case-study-tag">{tech}</span>
