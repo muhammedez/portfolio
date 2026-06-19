@@ -5,8 +5,6 @@ import { Mail, ArrowDown } from "lucide-react";
 export function HeroSection() {
   return (
     <section id="hero" className="hero-section">
-      <div className="hero-bg" />
-
       <div className="hero-content">
         <motion.p
           className="hero-greeting"
@@ -42,18 +40,11 @@ export function HeroSection() {
           {siteConfig.role}
         </motion.p>
 
-        <motion.div
-          className="hero-dash-rule"
-          initial={{ opacity: 0, scaleX: 0 }}
-          animate={{ opacity: 1, scaleX: 1 }}
-          transition={{ duration: 0.5, delay: 0.55 }}
-        />
-
         <motion.p
           className="hero-description"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
+          transition={{ duration: 0.5, delay: 0.55 }}
         >
           {siteConfig.bio}
         </motion.p>
@@ -62,7 +53,7 @@ export function HeroSection() {
           className="hero-metadata"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.7 }}
+          transition={{ duration: 0.5, delay: 0.65 }}
         >
           {heroMetadata.map((item, i) => (
             <span key={item.label} className="flex items-center gap-1">
@@ -73,20 +64,10 @@ export function HeroSection() {
         </motion.div>
 
         <motion.div
-          className="hero-status-strip"
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.76 }}
-        >
-          <span className="hero-status-dot" />
-          <span>Open to junior roles and freelance work</span>
-        </motion.div>
-
-        <motion.div
           className="hero-actions"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.86 }}
+          transition={{ duration: 0.5, delay: 0.75 }}
         >
           <a
             href="#projects"
@@ -109,7 +90,7 @@ export function HeroSection() {
           className="hero-chips"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 1 }}
+          transition={{ duration: 0.5, delay: 0.9 }}
         >
           {heroTechChips.map((tech, i) => (
             <motion.span
@@ -117,7 +98,7 @@ export function HeroSection() {
               className="hero-chip"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3, delay: 1 + i * 0.05 }}
+              transition={{ duration: 0.3, delay: 0.9 + i * 0.05 }}
             >
               {tech}
             </motion.span>

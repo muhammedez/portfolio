@@ -310,27 +310,13 @@ button {
 
 /* ================= HERO ================= */
 .hero-section {
+  background: var(--background);
   text-align: center;
   justify-content: center;
   align-items: center;
   min-height: 94vh;
   padding: 8rem 1.5rem 5rem;
   display: flex;
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-}
-
-.hero-section::before {
-  content: none;
-}
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background: var(--background);
-  pointer-events: none;
-  z-index: -1;
 }
 
 .hero-content {
@@ -338,8 +324,6 @@ button {
   align-items: center;
   max-width: 760px;
   display: flex;
-  position: relative;
-  z-index: 1;
 }
 
 .hero-greeting {
@@ -377,19 +361,11 @@ button {
   color: var(--foreground);
   letter-spacing: -0.01em;
   max-width: 560px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.1rem;
   font-family: var(--font-mono);
   font-size: clamp(1.0625rem, 2vw, 1.25rem);
   font-weight: 500;
   line-height: 1.4;
-}
-
-.hero-dash-rule {
-  background: var(--border);
-  width: 100%;
-  max-width: 120px;
-  height: 1px;
-  margin-bottom: 1.5rem;
 }
 
 .hero-description {
@@ -406,7 +382,7 @@ button {
   justify-content: center;
   align-items: center;
   gap: 0.35rem 0.75rem;
-  margin-bottom: 0.85rem;
+  margin-bottom: 1.85rem;
   font-size: 0.875rem;
   font-weight: 450;
   display: flex;
@@ -422,27 +398,6 @@ button {
   align-items: center;
   gap: 1.25rem;
   display: flex;
-}
-
-.hero-status-strip {
-  color: var(--muted-foreground);
-  background: var(--surface);
-  border-radius: 4px;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 0.35rem 0.65rem;
-  margin-bottom: 1.85rem;
-  padding: 0.5rem 0.85rem;
-  font-size: 0.8125rem;
-  display: flex;
-}
-
-.hero-status-dot {
-  background: #16a34a;
-  border-radius: 999px;
-  width: 0.5rem;
-  height: 0.5rem;
 }
 
 .hero-chips {
@@ -946,8 +901,10 @@ button {
 .contact-meta {
   flex-wrap: wrap;
   align-items: center;
+  justify-content: space-between;
   gap: 0.8rem 1.1rem;
   margin-top: 1rem;
+  padding: 0 0.1rem;
   display: flex;
 }
 
@@ -985,7 +942,6 @@ button {
 
 .contact-socials {
   gap: 0.4rem;
-  margin-left: auto;
   display: flex;
 }
 
@@ -1007,13 +963,14 @@ button {
 }
 
 @media (max-width: 640px) {
+  .contact-meta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
   .contact-submit {
     justify-content: center;
     width: 100%;
-  }
-
-  .contact-socials {
-    margin-left: 0;
   }
 }
 
