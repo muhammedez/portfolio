@@ -79,8 +79,6 @@ export function HeroSection() {
           transition={{ duration: 0.5, delay: 0.76 }}
         >
           <span className="hero-status-dot" />
-          <span>{siteConfig.location}</span>
-          <span className="hero-metadata-sep">·</span>
           <span>Open to junior roles and freelance work</span>
         </motion.div>
 

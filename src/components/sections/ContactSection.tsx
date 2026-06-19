@@ -1,6 +1,6 @@
 import { type FormEvent, useEffect, useRef, useState } from "react";
 import { siteConfig } from "@/lib/data";
-import { Send, Github, Linkedin, Twitter, Mail, MapPin } from "lucide-react";
+import { Send, Github, Linkedin, Twitter, Mail } from "lucide-react";
 
 export function ContactSection() {
   const [visible, setVisible] = useState(false);
@@ -86,11 +86,6 @@ export function ContactSection() {
               <span>Email</span>
               <strong>{siteConfig.email}</strong>
             </a>
-
-            <div className="contact-location">
-              <MapPin size={16} />
-              <span>{siteConfig.location}</span>
-            </div>
 
             <div className="contact-socials">
               <a href={siteConfig.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">

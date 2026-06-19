@@ -9,7 +9,6 @@ export const siteConfig = {
   github: "https://github.com/muhammedez",
   linkedin: "https://linkedin.com/in/yourusername",
   twitter: "https://x.com/yourusername",
-  location: "Available remotely",
   greeting: "Hi, I'm",
 };
 
