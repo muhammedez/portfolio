@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { siteConfig, heroMetadata, heroTechChips } from "@/lib/data";
-import { Mail, ArrowDown, FileDown } from "lucide-react";
+import { Mail, ArrowDown } from "lucide-react";
 
 export function HeroSection() {
   return (
@@ -29,7 +29,7 @@ export function HeroSection() {
         <motion.div
           className="hero-rule"
           initial={{ opacity: 0, scaleX: 0 }}
-          animate={{ opacity: 0.4, scaleX: 1 }}
+          animate={{ opacity: 1, scaleX: 1 }}
           transition={{ duration: 0.6, delay: 0.35 }}
         />
 
@@ -73,10 +73,22 @@ export function HeroSection() {
         </motion.div>
 
         <motion.div
+          className="hero-status-strip"
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.76 }}
+        >
+          <span className="hero-status-dot" />
+          <span>{siteConfig.location}</span>
+          <span className="hero-metadata-sep">·</span>
+          <span>Open to junior roles and freelance work</span>
+        </motion.div>
+
+        <motion.div
           className="hero-actions"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
+          transition={{ duration: 0.5, delay: 0.86 }}
         >
           <a
             href="#projects"
@@ -99,7 +111,7 @@ export function HeroSection() {
           className="hero-chips"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.95 }}
+          transition={{ duration: 0.5, delay: 1 }}
         >
           {heroTechChips.map((tech, i) => (
             <motion.span

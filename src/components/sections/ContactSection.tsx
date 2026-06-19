@@ -1,6 +1,6 @@
 import { type FormEvent, useEffect, useRef, useState } from "react";
 import { siteConfig } from "@/lib/data";
-import { Send, Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { Send, Github, Linkedin, Twitter, Mail, MapPin } from "lucide-react";
 
 export function ContactSection() {
   const [visible, setVisible] = useState(false);
@@ -36,58 +36,74 @@ export function ContactSection() {
 
   return (
     <section ref={ref} id="contact" className="py-24 sm:py-32 px-4 sm:px-6">
-      <div className="max-w-3xl mx-auto">
+      <div className="contact-shell">
         <span className={`section-label reveal ${visible ? "reveal-visible" : ""}`}>Contact</span>
 
-        <p className={`text-muted-foreground text-[0.9375rem] leading-relaxed mb-8 max-w-xl reveal ${visible ? "reveal-visible" : ""}`}>
+        <p className={`contact-intro reveal ${visible ? "reveal-visible" : ""}`}>
           I&apos;m open to junior developer roles, freelance projects, and collaboration. Let&apos;s build something great together.
         </p>
 
-        <div className={`about-card reveal ${visible ? "reveal-visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
-          <form onSubmit={handleSubmit} className="contact-form">
-            <div className="grid sm:grid-cols-2 gap-4">
-              <div className="form-field">
-                <label htmlFor="name" className="form-label">Name</label>
-                <input type="text" id="name" name="name" required className="form-input" placeholder="Your name" />
+        <div className={`contact-grid reveal ${visible ? "reveal-visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
+          <div className="about-card contact-form-card">
+            <form onSubmit={handleSubmit} className="contact-form">
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="form-field">
+                  <label htmlFor="name" className="form-label">Name</label>
+                  <input type="text" id="name" name="name" required className="form-input" placeholder="Your name" />
+                </div>
+                <div className="form-field">
+                  <label htmlFor="email" className="form-label">Email</label>
+                  <input type="email" id="email" name="email" required className="form-input" placeholder="you@example.com" />
+                </div>
               </div>
               <div className="form-field">
-                <label htmlFor="email" className="form-label">Email</label>
-                <input type="email" id="email" name="email" required className="form-input" placeholder="you@example.com" />
+                <label htmlFor="subject" className="form-label">Subject</label>
+                <input type="text" id="subject" name="subject" required className="form-input" placeholder="What's this about?" />
+              </div>
+              <div className="form-field">
+                <label htmlFor="message" className="form-label">Message</label>
+                <textarea id="message" name="message" required className="form-textarea" placeholder="Tell me about your project or opportunity..." />
+              </div>
+              <button type="submit" className="btn-primary contact-submit">
+                <Send size={14} />
+                Send Message
+              </button>
+              {status === "success" && <p className="form-status-success">Message sent! Opening your email client...</p>}
+            </form>
+          </div>
+
+          <aside className="contact-side-card">
+            <div className="contact-status">
+              <span className="contact-status-dot" />
+              <div>
+                <p>Open to work</p>
+                <strong>Junior roles and freelance projects</strong>
               </div>
             </div>
-            <div className="form-field">
-              <label htmlFor="subject" className="form-label">Subject</label>
-              <input type="text" id="subject" name="subject" required className="form-input" placeholder="What's this about?" />
-            </div>
-            <div className="form-field">
-              <label htmlFor="message" className="form-label">Message</label>
-              <textarea id="message" name="message" required className="form-textarea" placeholder="Tell me about your project or opportunity..." />
-            </div>
-            <button type="submit" className="btn-primary" style={{ alignSelf: "flex-start" }}>
-              <Send size={14} />
-              Send Message
-            </button>
-            {status === "success" && <p className="form-status-success">Message sent! Opening your email client...</p>}
-          </form>
-        </div>
 
-        <div className={`reveal ${visible ? "reveal-visible" : ""}`} style={{ transitionDelay: "0.15s", marginTop: "2rem" }}>
-          <a href={`mailto:${siteConfig.email}`} className="btn-outline">
-            <Mail size={14} />
-            {siteConfig.email}
-          </a>
-        </div>
+            <a href={`mailto:${siteConfig.email}`} className="contact-direct-link">
+              <Mail size={16} />
+              <span>Email</span>
+              <strong>{siteConfig.email}</strong>
+            </a>
 
-        <div className={`flex items-center gap-4 pt-6 reveal ${visible ? "reveal-visible" : ""}`} style={{ transitionDelay: "0.2s" }}>
-          <a href={siteConfig.github} target="_blank" rel="noopener noreferrer" className="btn-secondary" style={{ padding: 0 }}>
-            <Github size={14} /> GitHub
-          </a>
-          <a href={siteConfig.linkedin} target="_blank" rel="noopener noreferrer" className="btn-secondary" style={{ padding: 0 }}>
-            <Linkedin size={14} /> LinkedIn
-          </a>
-          <a href={siteConfig.twitter} target="_blank" rel="noopener noreferrer" className="btn-secondary" style={{ padding: 0 }}>
-            <Twitter size={14} /> X
-          </a>
+            <div className="contact-location">
+              <MapPin size={16} />
+              <span>{siteConfig.location}</span>
+            </div>
+
+            <div className="contact-socials">
+              <a href={siteConfig.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <Github size={16} />
+              </a>
+              <a href={siteConfig.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <Linkedin size={16} />
+              </a>
+              <a href={siteConfig.twitter} target="_blank" rel="noopener noreferrer" aria-label="X">
+                <Twitter size={16} />
+              </a>
+            </div>
+          </aside>
         </div>
       </div>
     </section>

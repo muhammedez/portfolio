@@ -68,7 +68,7 @@ export function Navbar() {
               </li>
             );
           })}
-          <a href="/cv.pdf" className="btn-outline" style={{ padding: "0.35rem 0.85rem", fontSize: "0.75rem" }}>
+          <a href="/cv.pdf" className="btn-outline navbar-resume">
             <FileDown size={12} />
             Resume
           </a>
@@ -78,7 +78,7 @@ export function Navbar() {
         </ul>
 
         <div className="navbar-mobile-actions">
-          <a href="/cv.pdf" className="btn-outline" style={{ padding: "0.35rem 0.75rem", fontSize: "0.75rem" }}>
+          <a href="/cv.pdf" className="btn-outline navbar-resume">
             <FileDown size={12} />
             Resume
           </a>
@@ -96,10 +96,7 @@ export function Navbar() {
       </nav>
 
       {isMobileOpen && (
-        <div
-          className="mobile-nav-overlay"
-          style={{ position: "fixed", top: "4rem", left: 0, right: 0, zIndex: 49 }}
-        >
+        <div className="mobile-nav-overlay">
           {navItems.map((item) => {
             const isActive = activeSection === item.href.replace("#", "");
             return (
@@ -118,8 +115,7 @@ export function Navbar() {
           })}
           <a
             href="/cv.pdf"
-            className="mobile-nav-link"
-            style={{ display: "flex", alignItems: "center", gap: "0.35rem", color: "var(--accent)" }}
+            className="mobile-nav-link mobile-resume-link"
           >
             <FileDown size={14} />
             Resume

@@ -37,7 +37,7 @@ export function ProjectsSection() {
                 {project.image ? (
                   <img src={project.image} alt={project.title} className="project-image-img" />
                 ) : (
-                  <div className="project-mockup" aria-hidden="true">
+                  <div className={`project-mockup project-mockup-${(i % 3) + 1}`} aria-hidden="true">
                     <div className="project-mockup-window">
                       <div className="project-mockup-toolbar">
                         <span />
@@ -72,20 +72,20 @@ export function ProjectsSection() {
                 <p className="text-muted-foreground text-sm leading-relaxed mb-3">
                   {project.problem}
                 </p>
-                <p className="text-muted-foreground/80 text-sm leading-relaxed mb-4">
+                <p className="project-card-summary text-muted-foreground/80 text-sm leading-relaxed">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-1.5 mb-4">
+                <div className="project-stack">
                   {project.stack.map((tech) => (
                     <span key={tech} className="case-study-tag">{tech}</span>
                   ))}
                 </div>
-                <div className="flex items-center gap-4 pt-3 border-t border-border">
-                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn-secondary" style={{ padding: 0 }}>
+                <div className="project-card-links">
+                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn-secondary project-card-link">
                     <Github size={14} /> Code
                   </a>
                   {project.live && (
-                    <a href={project.live} target="_blank" rel="noopener noreferrer" className="btn-secondary" style={{ padding: 0 }}>
+                    <a href={project.live} target="_blank" rel="noopener noreferrer" className="btn-secondary project-card-link">
                       <ExternalLink size={14} /> Live
                     </a>
                   )}
