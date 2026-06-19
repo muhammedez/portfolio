@@ -17,7 +17,7 @@ export function ExperienceSection() {
   }, []);
 
   return (
-    <section ref={ref} id="experience" className="py-24 sm:py-32 px-4 sm:px-6 bg-surface/30">
+    <section ref={ref} id="experience" className="py-24 sm:py-32 px-4 sm:px-6">
       <div className="section-container">
         <span className={`section-label reveal ${visible ? "reveal-visible" : ""}`}>Experience</span>
 

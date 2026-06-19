@@ -18,7 +18,7 @@ export function ProjectsSection() {
   }, []);
 
   return (
-    <section ref={ref} id="projects" className="py-24 sm:py-32 px-4 sm:px-6 bg-surface/30">
+    <section ref={ref} id="projects" className="py-24 sm:py-32 px-4 sm:px-6">
       <div className="section-container">
         <span className={`section-label reveal ${visible ? "reveal-visible" : ""}`}>Projects</span>
 
