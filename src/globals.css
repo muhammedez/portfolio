@@ -885,19 +885,6 @@ button {
   line-height: 1.7;
 }
 
-.contact-grid {
-  grid-template-columns: 1fr;
-  gap: 1rem;
-  align-items: stretch;
-  display: grid;
-}
-
-@media (min-width: 860px) {
-  .contact-grid {
-    grid-template-columns: minmax(0, 1.65fr) minmax(17rem, 0.85fr);
-  }
-}
-
 .contact-form-card {
   min-width: 0;
 }
@@ -956,70 +943,32 @@ button {
   align-self: flex-start;
 }
 
-.contact-side-card {
-  background: var(--card);
-  border-radius: 6px;
-  padding: 1.35rem;
+.contact-meta {
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem 1.1rem;
+  margin-top: 1rem;
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.contact-status {
-  align-items: flex-start;
-  gap: 0.75rem;
-  display: flex;
-}
-
-.contact-status-dot {
-  background: #16a34a;
-  border-radius: 999px;
-  width: 0.55rem;
-  height: 0.55rem;
-  margin-top: 0.2rem;
-  flex-shrink: 0;
-}
-
-.contact-status p {
-  color: var(--accent);
-  margin: 0 0 0.25rem;
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.contact-status strong {
-  color: var(--foreground);
-  font-size: 0.95rem;
-  line-height: 1.4;
 }
 
 .contact-direct-link {
   color: var(--muted-foreground);
-  background: var(--surface);
-  border-radius: 4px;
-  padding: 0.8rem;
+  max-width: 100%;
   text-decoration: none;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.15rem 0.65rem;
+  display: inline-flex;
+  flex-wrap: wrap;
   align-items: center;
-}
-
-.contact-direct-link {
-  transition: color 0.2s, background 0.2s;
+  gap: 0.2rem 0.45rem;
+  transition: color 0.2s;
 }
 
 .contact-direct-link:hover {
   color: var(--foreground);
-  background: var(--surface);
 }
 
 .contact-direct-link svg {
   color: var(--accent);
-  grid-row: span 2;
+  flex-shrink: 0;
 }
 
 .contact-direct-link span {
@@ -1035,8 +984,8 @@ button {
 }
 
 .contact-socials {
-  gap: 0.6rem;
-  margin-top: auto;
+  gap: 0.4rem;
+  margin-left: auto;
   display: flex;
 }
 
@@ -1044,8 +993,8 @@ button {
   color: var(--muted-foreground);
   background: var(--surface);
   border-radius: 4px;
-  width: 2.35rem;
-  height: 2.35rem;
+  width: 2.2rem;
+  height: 2.2rem;
   align-items: center;
   justify-content: center;
   display: flex;
@@ -1055,6 +1004,17 @@ button {
 .contact-socials a:hover {
   color: var(--accent);
   background: var(--secondary);
+}
+
+@media (max-width: 640px) {
+  .contact-submit {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .contact-socials {
+    margin-left: 0;
+  }
 }
 
 /* ================= FOOTER ================= */
