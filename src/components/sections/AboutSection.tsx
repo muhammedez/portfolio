@@ -34,7 +34,7 @@ export function AboutSection() {
               style={{ transitionDelay: "0.1s" }}
             >
               {aboutParagraphs.map((text, i) => (
-                <p key={i} className="text-muted-foreground leading-relaxed text-[0.9375rem] [&:not(:last-child)]:mb-4">
+                <p key={i} className="text-muted-foreground leading-relaxed text-[0.9375rem] not-last:mb-4">
                   {text}
                 </p>
               ))}
