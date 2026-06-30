@@ -1,10 +1,12 @@
 import { aboutParagraphs, aboutStats, aboutFocusList } from "@/lib/data";
-import { Layers, Code2, Server, Clock, Target } from "lucide-react";
+import { Code2, Database, Server, Clock, Target } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 const statIcons: Record<string, React.ReactNode> = {
   "Frontend Stack": <Code2 size={14} />,
   "Backend Stack": <Server size={14} />,
+  "API Stack": <Server size={14} />,
+  "Data Stack": <Database size={14} />,
 };
 
 export function AboutSection() {

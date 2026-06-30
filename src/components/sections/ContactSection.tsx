@@ -40,7 +40,7 @@ export function ContactSection() {
         <span className={`section-label reveal ${visible ? "reveal-visible" : ""}`}>Contact</span>
 
         <p className={`contact-intro reveal ${visible ? "reveal-visible" : ""}`}>
-          I&apos;m open to junior developer roles, freelance projects, and collaboration. Let&apos;s build something great together.
+          I&apos;m open to full-stack developer roles focused on React, Next.js, Node.js, Express, Laravel, databases, SaaS APIs, and payment or billing integrations.
         </p>
 
         <div className={`about-card contact-form-card reveal ${visible ? "reveal-visible" : ""}`} style={{ transitionDelay: "0.1s" }}>

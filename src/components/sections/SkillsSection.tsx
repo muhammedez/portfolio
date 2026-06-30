@@ -1,11 +1,12 @@
 import { skillGroups } from "@/lib/data";
-import { Code2, Server, Wrench } from "lucide-react";
+import { Code2, Database, Server, Wrench } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 const categoryIcons: Record<string, React.ReactNode> = {
   Languages: <Code2 size={13} />,
   Frontend: <Code2 size={13} />,
   Backend: <Server size={13} />,
+  Databases: <Database size={13} />,
   Tools: <Wrench size={13} />,
 };
 
