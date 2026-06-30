@@ -21,7 +21,7 @@ export const navItems: NavItem[] = [
 ];
 
 export const heroMetadata: { label: string; value: string }[] = [
-  { label: "Experience", value: "3+ years" },
+  { label: "Experience", value: "2+ years" },
   { label: "Focus", value: "Full-stack + SaaS APIs" },
 ];
 
