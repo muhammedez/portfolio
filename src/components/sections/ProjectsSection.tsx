@@ -23,69 +23,75 @@ export function ProjectsSection() {
         <span className={`section-label reveal ${visible ? "reveal-visible" : ""}`}>Projects</span>
 
         <p className={`text-muted-foreground text-sm mb-8 reveal ${visible ? "reveal-visible" : ""}`} style={{ transitionDelay: "0.05s" }}>
-          A selection of things I&apos;ve built to solve real problems.
+          Real public projects from my GitHub account, with live links where available.
         </p>
 
         <div className="projects-grid">
-          {projects.map((project, i) => (
-            <div
-              key={project.id}
-              className={`case-study-card reveal ${visible ? "reveal-visible" : ""}`}
-              style={{ transitionDelay: `${0.1 + i * 0.08}s` }}
-            >
-              <div className="project-card-body">
-                <div className="project-card-heading">
-                  <span className="project-card-index">{String(i + 1).padStart(2, "0")}</span>
-                  <h3>{project.title}</h3>
-                </div>
+          {projects.map((project, i) => {
+            const codeLinks = project.codeLinks ?? [{ label: "Code", href: project.github }];
 
-                <div className="project-screenshot" aria-label={`${project.title} screenshot preview`}>
-                  {project.image ? (
-                    <img src={project.image} alt={`${project.title} screenshot`} />
-                  ) : (
-                    <div className="project-screenshot-placeholder" aria-hidden="true">
-                      <div className="project-screenshot-bar">
-                        <span />
-                        <span />
-                        <span />
+            return (
+              <div
+                key={project.id}
+                className={`case-study-card reveal ${visible ? "reveal-visible" : ""}`}
+                style={{ transitionDelay: `${0.1 + i * 0.08}s` }}
+              >
+                <div className="project-card-body">
+                  <div className="project-card-heading">
+                    <span className="project-card-index">{String(i + 1).padStart(2, "0")}</span>
+                    <h3>{project.title}</h3>
+                  </div>
+
+                  <div className="project-screenshot" aria-label={`${project.title} screenshot preview`}>
+                    {project.image ? (
+                      <img src={project.image} alt={`${project.title} screenshot`} />
+                    ) : (
+                      <div className="project-screenshot-placeholder" aria-hidden="true">
+                        <div className="project-screenshot-bar">
+                          <span />
+                          <span />
+                          <span />
+                        </div>
+                        <div className="project-screenshot-body">
+                          <span className="project-screenshot-line project-screenshot-line-short" />
+                          <span className="project-screenshot-line" />
+                          <span className="project-screenshot-block" />
+                        </div>
                       </div>
-                      <div className="project-screenshot-body">
-                        <span className="project-screenshot-line project-screenshot-line-short" />
-                        <span className="project-screenshot-line" />
-                        <span className="project-screenshot-block" />
-                      </div>
-                    </div>
-                  )}
-                </div>
+                    )}
+                  </div>
 
-                <div className="project-case-block">
-                  <span>Problem</span>
-                  <p>{project.problem}</p>
-                </div>
+                  <div className="project-case-block">
+                    <span>Problem</span>
+                    <p>{project.problem}</p>
+                  </div>
 
-                <div className="project-case-block">
-                  <span>Build</span>
-                  <p>{project.description}</p>
-                </div>
+                  <div className="project-case-block">
+                    <span>Build</span>
+                    <p>{project.description}</p>
+                  </div>
 
-                <div className="project-stack">
-                  {project.stack.map((tech) => (
-                    <span key={tech} className="case-study-tag">{tech}</span>
-                  ))}
-                </div>
-                <div className="project-card-links">
-                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn-secondary project-card-link">
-                    <Github size={14} /> Code
-                  </a>
-                  {project.live && (
-                    <a href={project.live} target="_blank" rel="noopener noreferrer" className="btn-secondary project-card-link">
-                      <ExternalLink size={14} /> Live
-                    </a>
-                  )}
+                  <div className="project-stack">
+                    {project.stack.map((tech) => (
+                      <span key={tech} className="case-study-tag">{tech}</span>
+                    ))}
+                  </div>
+                  <div className="project-card-links">
+                    {codeLinks.map((link) => (
+                      <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" className="btn-secondary project-card-link">
+                        <Github size={14} /> {link.label}
+                      </a>
+                    ))}
+                    {project.live && (
+                      <a href={project.live} target="_blank" rel="noopener noreferrer" className="btn-secondary project-card-link">
+                        <ExternalLink size={14} /> Live
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

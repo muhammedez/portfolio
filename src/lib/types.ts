@@ -1,3 +1,8 @@
+export interface ProjectLink {
+  label: string;
+  href: string;
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -5,6 +10,7 @@ export interface Project {
   description: string;
   stack: string[];
   github: string;
+  codeLinks?: ProjectLink[];
   live?: string;
   image?: string;
 }

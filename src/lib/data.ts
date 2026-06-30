@@ -62,60 +62,66 @@ export const aboutFocusList: string[] = [
 
 export const projects: Project[] = [
   {
-    id: "saas-api-billing-service",
-    title: "SaaS API & Billing Service",
-    problem: "SaaS platforms need reliable account, subscription, and billing workflows that stay in sync with product access.",
-    description:
-      "Built backend services for customer records, authentication, subscription status, billing webhooks, and audit-friendly API workflows.",
-    stack: ["Node.js", "Express", "TypeScript", "PostgreSQL", "MongoDB", "Mongoose", "Docker"],
-    github: "https://github.com/muhammedez/saas-api-billing-service",
-  },
-  {
-    id: "portfolio-generator",
-    title: "Portfolio Generator",
-    problem: "Developers spend more time building their portfolio than showcasing their actual work.",
-    description:
-      "A tool that turns a simple config file into a polished developer portfolio with dark mode, responsive layouts, typed content, and one-click deployment.",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS", "MDX", "Vercel"],
-    github: "https://github.com/muhammedez/portfolio-generator",
-    live: "https://portfolio-gen.vercel.app",
-  },
-  {
-    id: "weather-dashboard",
-    title: "Weather Dashboard",
-    problem: "Switching between tabs to check forecasts for different cities is slow and distracting.",
-    description:
-      "Real-time weather dashboard that aggregates forecasts for multiple cities in one view with location search, API integration, and responsive UI states.",
-    stack: ["React", "TypeScript", "Tailwind CSS", "OpenWeather API"],
-    github: "https://github.com/muhammedez/weather-dashboard",
-    live: "https://weather-dash-demo.vercel.app",
-  },
-  {
-    id: "ecommerce-platform",
-    title: "E-Commerce Platform",
-    problem: "Small businesses lose sales to high platform fees and rigid storefront tools.",
-    description:
-      "Built a full-featured e-commerce platform handling product listings, cart, checkout, order tracking, admin workflows, and payment-ready backend logic.",
-    stack: ["Laravel", "React", "MySQL", "Tailwind CSS", "Livewire", "REST API", "Payment Gateway"],
-    github: "https://github.com/muhammedez/ecommerce-platform",
-  },
-  {
-    id: "blog-api",
-    title: "Headless Blog API",
-    problem: "Content teams waste time re-publishing the same posts across different frontends.",
-    description:
-      "Designed a RESTful content API with JWT authentication and role-based access control, enabling a single backend to serve multiple client applications.",
-    stack: ["Laravel", "PHP", "MySQL", "REST API", "JWT", "Role-Based Access"],
-    github: "https://github.com/muhammedez/blog-api",
-  },
-  {
-    id: "inventory-system",
+    id: "inventory-management-system",
     title: "Inventory Management System",
-    problem: "Manual stock tracking in spreadsheets leads to costly errors and overselling.",
+    problem: "Small shops need one place to manage stock, sales, purchases, customers, suppliers, and cash flow instead of juggling spreadsheets.",
     description:
-      "Web-based inventory system with barcode scanning, low-stock alerts, supplier tracking, sales reporting, and database-backed admin workflows.",
-    stack: ["Laravel", "Livewire", "MySQL", "Alpine.js", "Tailwind CSS", "REST API"],
-    github: "https://github.com/muhammedez/inventory-system",
+      "Laravel inventory app with a dashboard, POS workflow, purchase receiving, finance ledger, customer and supplier records, low-stock tracking, and dynamic currency settings.",
+    stack: ["Laravel 12", "Livewire", "Alpine.js", "Tailwind CSS", "MySQL", "ApexCharts"],
+    github: "https://github.com/muhammedez/inventory-management-system",
+    image: "https://raw.githubusercontent.com/muhammedez/inventory-management-system/main/public/images/screenshot.png",
+  },
+  {
+    id: "recallify",
+    title: "Recallify",
+    problem: "Missed calls are easy to forget once they disappear into the Android call log.",
+    description:
+      "Android missed-call reminder app that detects missed calls locally, creates reminders, sends repeat notifications, supports snooze/call-back actions, and keeps history on-device.",
+    stack: ["Kotlin", "Jetpack Compose", "Material 3", "Room", "WorkManager", "DataStore"],
+    github: "https://github.com/muhammedez/recallify",
+  },
+  {
+    id: "portfolio",
+    title: "Portfolio Website",
+    problem: "A developer portfolio needs to present work, skills, experience, and contact paths clearly without feeling like a generic template.",
+    description:
+      "Responsive personal portfolio built with typed content, reusable React sections, dark mode, animated section reveals, and Vercel-ready deployment config.",
+    stack: ["React", "TypeScript", "Vite", "Tailwind CSS", "Lucide React", "Vercel"],
+    github: "https://github.com/muhammedez/portfolio",
+    live: "https://mahamed-izedin.vercel.app/",
+  },
+  {
+    id: "jebena-cafe",
+    title: "Jebena Cafe",
+    problem: "A local cafe needs a lightweight web presence that communicates its story, menu highlights, and visit intent fast.",
+    description:
+      "Static cafe landing page with a branded hero, Ethiopian coffee positioning, feature cards, quote section, call to action, and GitHub Pages deployment.",
+    stack: ["HTML", "CSS", "Responsive Layout", "GitHub Pages"],
+    github: "https://github.com/muhammedez/jebena-cafe",
+    live: "https://muhammedez.github.io/jebena-cafe/",
+    image: "https://raw.githubusercontent.com/muhammedez/jebena-cafe/main/images/jebena-cafe.jpg",
+  },
+  {
+    id: "chatbot",
+    title: "Chatbot",
+    problem: "Chat interfaces need authenticated conversation history and persistent messages without a heavy frontend stack.",
+    description:
+      "Laravel chat application with login/register flows, conversation and message models, Blade views, Livewire-powered chat UI, and Vite-built assets.",
+    stack: ["Laravel 13", "Livewire", "Blade", "Tailwind CSS", "Vite"],
+    github: "https://github.com/muhammedez/chatbot",
+  },
+  {
+    id: "yourplaces",
+    title: "YourPlaces App",
+    problem: "Location-sharing products need a clean split between the user-facing React app and secure backend APIs.",
+    description:
+      "Full-stack place-sharing project with React routes and forms on the frontend, plus an Express API for users, places, authentication, validation, uploads, and MongoDB persistence.",
+    stack: ["React", "React Router", "Node.js", "Express", "MongoDB", "Mongoose"],
+    github: "https://github.com/muhammedez/yourplaces-frontend",
+    codeLinks: [
+      { label: "Frontend", href: "https://github.com/muhammedez/yourplaces-frontend" },
+      { label: "API", href: "https://github.com/muhammedez/yourplaces-api" },
+    ],
   },
 ];
 

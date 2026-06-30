@@ -685,6 +685,7 @@ button {
   gap: 1rem;
   padding-top: 0.25rem;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .project-card-link {
